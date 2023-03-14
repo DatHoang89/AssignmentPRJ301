@@ -21,6 +21,7 @@
                 width: 100%;
                 margin-bottom: 20px;
                 border: 1px solid #ddd;
+                
             }
 
             table td, table th {
@@ -58,12 +59,21 @@
                 border-radius: 4px;
                 cursor: pointer;
             }
+            .row{
+                background-color: #00FFFF;
+            }
         </style>
     </head>
     <body>
+        <h2>
+            <p>Single activity Attendance</p>
+        </h2>
+        <h4>
+            <p>Attendance for ... with lecturer ... at slot 1</p>
+        </h4>
         <form action="att" method="POST"> 
             <table border="1px">
-                <tr>
+                <tr class="row">
                     <td>Seq</td>
                     <td>Student Id</td>
                     <td>Name</td>
