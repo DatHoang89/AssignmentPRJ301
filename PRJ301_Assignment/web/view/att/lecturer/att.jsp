@@ -9,8 +9,56 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/att.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+            }
+
+            table td, table th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            table th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            input[type="radio"] {
+                margin: 0 10px 0 0;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+            }
+
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <form action="att" method="POST"> 
@@ -31,12 +79,12 @@
                         <td>
                             <input type="radio" 
                                    <c:if test="${!a.status}">
-                                   checked="checked" 
+                                       checked="checked" 
                                    </c:if>
                                    name="status${a.student.stdid}" value="absent"/> Absent
                             <input type="radio" 
                                    <c:if test="${a.status}">
-                                   checked="checked" 
+                                       checked="checked" 
                                    </c:if>
                                    name="status${a.student.stdid}" value="present" /> Present
                         </td>
@@ -51,6 +99,6 @@
             <input type="hidden" name="sessionid" value="${param.id}"/>
             <input type="submit" value="Save"/>
         </form>
-        
+
     </body>
 </html>

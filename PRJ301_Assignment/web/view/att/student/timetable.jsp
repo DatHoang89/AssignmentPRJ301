@@ -12,6 +12,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #dddddd;
+            }
+        </style>
     </head>
     <body>
         <table border="1px"> 
@@ -19,31 +35,31 @@
                 <td></td>
                 <c:forEach items="${requestScope.dates}" var="d">
                     <td>${d}<br/><fmt:formatDate value="${d}" pattern="EEEE"/>
-            </td>
-        </c:forEach>
+                    </td>
+                </c:forEach>
 
-    </tr>
-    <c:forEach items="${requestScope.slots}" var="slot"> 
-        <tr>
-            <td>${slot.description}</td>
-            <c:forEach items="${requestScope.dates}" var="d">
-                <td>
-                    <c:forEach items="${requestScope.s.groups}" var="g">
-                        <c:forEach items="${g.sessions}" var="ses">
-                            <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
-                                ${g.name}(${g.subject.name}) <br/>
-                                ${ses.lecturer.name}-${ses.room.name} <br/>
-                                <c:if test="${ses.status}">
-                                    <img src="../img/Ok-icon.png" alt=""/>
-                                </c:if>
-                            </c:if>
-                        </c:forEach>
+            </tr>
+            <c:forEach items="${requestScope.slots}" var="slot"> 
+                <tr>
+                    <td>${slot.description}</td>
+                    <c:forEach items="${requestScope.dates}" var="d">
+                        <td>
+                            <c:forEach items="${requestScope.s.groups}" var="g">
+                                <c:forEach items="${g.sessions}" var="ses">
+                                    <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
+                                        ${g.name}(${g.subject.name}) <br/>
+                                        ${ses.lecturer.name}-${ses.room.name} <br/>
+                                        <c:if test="${ses.status}">
+                                            <img src="../img/Ok-icon.png" alt=""/>
+                                        </c:if>
+                                    </c:if>
+                                </c:forEach>
+                            </c:forEach>
+                        </td>
                     </c:forEach>
-                </td>
+                </tr>
             </c:forEach>
-        </tr>
-    </c:forEach>
 
-</table>
-</body>
+        </table>
+    </body>
 </html>
