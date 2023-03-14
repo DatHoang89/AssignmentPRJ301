@@ -18,7 +18,7 @@ import model.Account;
 public class AccountDBContext extends DBContext<Account>{
 
     public Account get(String username, String password) {
-        String sql = "SELECT username FROM [Account] \n"
+        String sql = "SELECT username,accountid,displayname,roleId FROM [Account] \n"
                 + "WHERE username = ? AND [password] =?";
         PreparedStatement stm = null;
         ResultSet rs = null;
