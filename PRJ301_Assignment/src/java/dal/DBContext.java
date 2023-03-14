@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  * @author LEGION
  */
 public abstract class DBContext<T> {
+
     protected Connection connection;
 
     public DBContext() {
@@ -31,4 +32,6 @@ public abstract class DBContext<T> {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public abstract ArrayList<T> all();
 }

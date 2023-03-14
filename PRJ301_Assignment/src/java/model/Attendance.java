@@ -20,7 +20,7 @@ public class Attendance {
     }
     private Student student;
     private Session session;
-    private boolean present;
+    private boolean status;
     private String description;
 
     public Student getStudent() {
@@ -39,12 +39,12 @@ public class Attendance {
         this.session = session;
     }
 
-    public boolean isPresent() {
-        return present;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setPresent(boolean present) {
-        this.present = present;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getDescription() {

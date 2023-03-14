@@ -13,14 +13,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="login" method="POST">
-            <label for="email">Username:</label>
-            <input type="text" id="username" name="username" required><br/>
+        <div class="container">
+            <div class="left">
+                <div class="login">Login</div>
+                <div class="eula">You are login to FAP of <br/>FPT Unitversity</div>
+            </div>
+            <form action="login" method="POST">
+                <label for="email">Username:</label>
+                <input type="text" id="username" name="username" required><br/>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
 
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit">Submit</button>
+            </form>
     </body>
 </html>

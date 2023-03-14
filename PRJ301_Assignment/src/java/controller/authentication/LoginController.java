@@ -59,9 +59,11 @@ public class LoginController extends HttpServlet {
             response.getWriter().println("login successful!");
         }
         if(acc.getRole() == 0){
-            response.sendRedirect("view/student/timetable.jsp");
+//            request.getRequestDispatcher("view/student/timetable.jsp").forward(request, response);
+//            response.sendRedirect("view/student/timetable.jsp");
         }else{
-            response.sendRedirect("view/lecturer/attendance.jsp");
+//            request.getRequestDispatcher("view/lecturer/attendance.jsp").forward(request, response);
+//            response.sendRedirect("view/lecturer/attendance.jsp");
         }
         
     }

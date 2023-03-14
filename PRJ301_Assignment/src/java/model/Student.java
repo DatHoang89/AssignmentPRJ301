@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author LEGION
  */
 public class Student {
+
     private int stdid;
     private String stdname;
     private boolean gender;
@@ -20,17 +21,6 @@ public class Student {
     private String stdemail;
     private ArrayList<Group> groups = new ArrayList<>();
 
-    public Student(int stdid, String stdname, boolean gender, Date dob, String stdphone, String stdemail) {
-        this.stdid = stdid;
-        this.stdname = stdname;
-        this.gender = gender;
-        this.dob = dob;
-        this.stdphone = stdphone;
-        this.stdemail = stdemail;
-    }
-
-    
-    
     public int getStdid() {
         return stdid;
     }
@@ -86,6 +76,6 @@ public class Student {
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
-    
-    
+
+
 }
