@@ -9,7 +9,15 @@ package model;
  * @author LEGION
  */
 public class Attendance {
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     private Student student;
     private Session session;
     private boolean present;

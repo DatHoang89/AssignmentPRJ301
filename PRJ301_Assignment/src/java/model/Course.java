@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author LEGION
  */
-public class Subject {
+public class Course {
 
     private int id;
     private String name;

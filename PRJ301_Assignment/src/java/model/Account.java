@@ -8,9 +8,36 @@ package model;
  *
  * @author LEGION
  */
-public class User {
+public class Account {
+    private int aid;
     private String username;
     private String password;
+    private String displayName;
+    private int role;
+
+    public int getAid() {
+        return aid;
+    }
+
+    public void setAid(int aid) {
+        this.aid = aid;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
 
     public String getUsername() {
         return username;

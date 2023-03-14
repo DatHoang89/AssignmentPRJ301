@@ -22,7 +22,7 @@ public abstract class DBContext<T> {
         try {
             String user = "dathpq";
             String pass = "123456";
-            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=SE1722_Workshop2";
+            String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=StudentAttendance";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException ex) {
@@ -31,14 +31,4 @@ public abstract class DBContext<T> {
             Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public abstract void insert(T model);
-
-    public abstract void update(T model);
-
-    public abstract void delete(T model);
-
-    public abstract T get(int id);
-
-    public abstract ArrayList<T> all();
 }

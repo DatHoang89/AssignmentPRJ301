@@ -19,8 +19,18 @@ public class Student {
     private String stdphone;
     private String stdemail;
     private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Attendance> attendances = new ArrayList<>();
 
+    public Student(int stdid, String stdname, boolean gender, Date dob, String stdphone, String stdemail) {
+        this.stdid = stdid;
+        this.stdname = stdname;
+        this.gender = gender;
+        this.dob = dob;
+        this.stdphone = stdphone;
+        this.stdemail = stdemail;
+    }
+
+    
+    
     public int getStdid() {
         return stdid;
     }
@@ -75,14 +85,6 @@ public class Student {
 
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
-    }
-
-    public ArrayList<Attendance> getAttendances() {
-        return attendances;
-    }
-
-    public void setAttendances(ArrayList<Attendance> attendances) {
-        this.attendances = attendances;
     }
     
     

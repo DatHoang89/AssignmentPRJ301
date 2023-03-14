@@ -3,17 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+
 import java.util.ArrayList;
+
 /**
  *
  * @author LEGION
  */
 public class Group {
+
     private int id;
     private String name;
-    private Subject subject;
+    private Course subject;
     private ArrayList<Session> sessions = new ArrayList<>();
-    private ArrayList<Student> students = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -31,11 +33,11 @@ public class Group {
         this.name = name;
     }
 
-    public Subject getSubject() {
+    public Course getSubject() {
         return subject;
     }
 
-    public void setSubject(Subject subject) {
+    public void setSubject(Course subject) {
         this.subject = subject;
     }
 
@@ -47,13 +49,4 @@ public class Group {
         this.sessions = sessions;
     }
 
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
-    
-    
 }

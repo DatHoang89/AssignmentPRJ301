@@ -5,7 +5,6 @@
 package model;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
 /**
  *
@@ -13,13 +12,12 @@ import java.util.ArrayList;
  */
 public class Session {
     private int id;
-    private Group group;
-    private Lecturer lecturer;
     private Room room;
-    private TimeSlot slot;
+    private Lecturer lecturer;
     private Date date;
-    private boolean attended;
-    private ArrayList<Attendance> atts = new ArrayList<>();
+    private TimeSlot slot;
+    private Group group;
+    private boolean status;
 
     public int getId() {
         return id;
@@ -27,22 +25,6 @@ public class Session {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-    public Lecturer getLecturer() {
-        return lecturer;
-    }
-
-    public void setLecturer(Lecturer lecturer) {
-        this.lecturer = lecturer;
     }
 
     public Room getRoom() {
@@ -53,12 +35,12 @@ public class Session {
         this.room = room;
     }
 
-    public TimeSlot getSlot() {
-        return slot;
+    public Lecturer getLecturer() {
+        return lecturer;
     }
 
-    public void setSlot(TimeSlot slot) {
-        this.slot = slot;
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 
     public Date getDate() {
@@ -69,21 +51,28 @@ public class Session {
         this.date = date;
     }
 
-    public boolean isAttended() {
-        return attended;
+    public TimeSlot getSlot() {
+        return slot;
     }
 
-    public void setAttended(boolean attended) {
-        this.attended = attended;
+    public void setSlot(TimeSlot slot) {
+        this.slot = slot;
     }
 
-    public ArrayList<Attendance> getAtts() {
-        return atts;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setAtts(ArrayList<Attendance> atts) {
-        this.atts = atts;
+    public void setGroup(Group group) {
+        this.group = group;
     }
-    
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
     
 }

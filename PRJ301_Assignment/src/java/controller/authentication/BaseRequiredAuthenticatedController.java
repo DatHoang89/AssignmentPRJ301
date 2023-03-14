@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import model.User;
+import model.Account;
 
 /**
  *
@@ -18,7 +18,7 @@ import model.User;
 public abstract class BaseRequiredAuthenticatedController extends HttpServlet {
 
     private boolean isAuthenticated(HttpServletRequest request) {
-        return request.getSession().getAttribute("user") != null;
+        return request.getSession().getAttribute("account") != null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -36,16 +36,16 @@ public abstract class BaseRequiredAuthenticatedController extends HttpServlet {
         if(isAuthenticated(request))
         {
             //do business
-            doGet(request, response, (User)request.getSession().getAttribute("user"));
+            doGet(request, response, (Account)request.getSession().getAttribute("account"));
         }
         else
         {
             response.getWriter().println("Access denied!");
         }
     }
-    protected abstract void doGet(HttpServletRequest request, HttpServletResponse response,User user)
+    protected abstract void doGet(HttpServletRequest request, HttpServletResponse response,Account user)
             throws ServletException, IOException;
-    protected abstract void doPost(HttpServletRequest request, HttpServletResponse response,User user)
+    protected abstract void doPost(HttpServletRequest request, HttpServletResponse response,Account user)
             throws ServletException, IOException;
 
     /**
@@ -62,7 +62,7 @@ public abstract class BaseRequiredAuthenticatedController extends HttpServlet {
         if(isAuthenticated(request))
         {
             //do business
-            doPost(request, response, (User)request.getSession().getAttribute("user"));
+            doPost(request, response, (Account)request.getSession().getAttribute("account"));
         }
         else
         {
