@@ -20,6 +20,14 @@
         <servlet-name>HomeTeacher</servlet-name>
         <servlet-class>allcontroller.HomeTeacher</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController2</servlet-name>
+        <servlet-class>controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controller.authentication.LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -40,9 +48,25 @@
         <servlet-name>HomeTeacher</servlet-name>
         <url-pattern>/HomeTeacher</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController2</servlet-name>
+        <url-pattern>/view/authentication/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>controller.authentication.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/lecturer/*</url-pattern>
+    </filter-mapping>
 </web-app>
