@@ -20,7 +20,7 @@ import model.Student;
 public class AttendanceDBContext extends DBContext<Attendance> {
 
     public ArrayList<Attendance> getAttendancesBySession(int sessionid) {
-        String sql = "SELECT s.sid,s.sname,\n"
+        String sql = "SELECT s.sid,s.sname,s.gender,\n"
                 + "a.aid,\n"
                 + "ISNULL(a.status,0) as [status],\n"
                 + "ISNULL(a.description,'') as [description]\n"

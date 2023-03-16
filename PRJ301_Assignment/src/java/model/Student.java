@@ -21,6 +21,22 @@ public class Student {
     private String stdemail;
     private ArrayList<Group> groups = new ArrayList<>();
 
+    public Student() {
+    }
+
+    
+    
+    public Student(int stdid, String stdname, boolean gender, Date dob, String stdphone, String stdemail) {
+        this.stdid = stdid;
+        this.stdname = stdname;
+        this.gender = gender;
+        this.dob = dob;
+        this.stdphone = stdphone;
+        this.stdemail = stdemail;
+    }
+
+    
+    
     public int getStdid() {
         return stdid;
     }

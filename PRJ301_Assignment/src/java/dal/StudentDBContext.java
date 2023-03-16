@@ -104,7 +104,55 @@ public class StudentDBContext extends DBContext<Student> {
         }
         return student;
     } 
+    
+    public Student getStudentById(int id) {
+        try {
+            String sql = "select * from Student where sid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Student stu = new Student(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBoolean(3),
+                        rs.getDate(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+                return stu;
+            }
 
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public Student getStudentByAId(int aid) {
+       try {
+            String sql = "select * from Student where accountid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, aid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Student stu = new Student(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBoolean(3),
+                        rs.getDate(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+                return stu;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     @Override
     public ArrayList<Student> all() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +15,36 @@ public class Lecturer {
 
     private int id;
     private String name;
+    private boolean gender;
+    private Date dob;
+
+    public Lecturer() {
+    }
+
+    public Lecturer(int id, String name, boolean gender, Date dob) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.dob = dob;
+    }
+
+    
+    
+    public boolean isGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
     private ArrayList<Session> sessions = new ArrayList<>();
 
     public int getId() {

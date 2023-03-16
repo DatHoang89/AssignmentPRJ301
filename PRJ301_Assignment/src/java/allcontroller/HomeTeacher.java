@@ -2,23 +2,47 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller.authentication;
+package allcontroller;
 
-import dal.AccountDBContext;
+import dal.StudentDBContext;
+import dal.TeacherDBContext;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import model.Account;
+import model.Lecturer;
+import model.Student;
 
 /**
  *
  * @author LEGION
  */
-public class LoginController extends HttpServlet {
+public class HomeTeacher extends HttpServlet {
    
-    
+    /** 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+          response.setContentType("text/html;charset=UTF-8");
+          Account acc = (Account) request.getSession().getAttribute("account");
+        System.out.println("---------account" + acc.getDisplayName()+ acc.getAid());
+        int teacherId = new TeacherDBContext().getTeacherByAid(acc.getAid()).getId();
+        request.getSession().setAttribute("teacherId", teacherId);
+        Lecturer lecture = new TeacherDBContext().getTeacherById(teacherId);
+        request.setAttribute("lecture", lecture);
+        RequestDispatcher dispartcher = request.getRequestDispatcher("view/att/lecturer/ViewFeatureTeacher.jsp");
+        dispartcher.forward(request, response);
+
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -31,7 +55,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.getRequestDispatcher("view/authentication/login.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
@@ -44,30 +68,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        AccountDBContext db = new AccountDBContext();
-        Account acc = db.get(username, password);
-        if(acc == null)
-        {
-            response.getWriter().println("login failed!");
-        }
-        else
-        {
-            request.getSession().setAttribute("account", acc);
-            request.getSession().setAttribute("username", username);
-            response.getWriter().println("login successful!");
-        }
-        if(acc.getRole() == 0){
-            response.sendRedirect("/PRJ301_Assignment/Home");
-//            request.getRequestDispatcher("view/student/timetable.jsp").forward(request, response);
-//            response.sendRedirect("view/student/timetable.jsp");
-        }else{
-            response.sendRedirect("/PRJ301_Assignment/HomeTeacher");
-//            request.getRequestDispatcher("view/lecturer/attendance.jsp").forward(request, response);
-//            response.sendRedirect("view/lecturer/attendance.jsp");
-        }
-        
+        processRequest(request, response);
     }
 
     /** 
@@ -80,3 +81,4 @@ public class LoginController extends HttpServlet {
     }// </editor-fold>
 
 }
+

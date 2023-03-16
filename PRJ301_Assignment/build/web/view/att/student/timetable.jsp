@@ -47,7 +47,7 @@
             <p>FPT University Academic Portal</p>
         </h1>
         <h2>
-            <p>Activities for ....</p>
+            <p>Activities for ${requestScope.s.stdname} </p>
         </h2>
         <h4>
             <div>

@@ -77,6 +77,7 @@
                     <td>Seq</td>
                     <td>Student Id</td>
                     <td>Name</td>
+                    <td>Gender</td>
                     <td>Present/Absent</td>
                     <td>Description</td>
                 </tr>
@@ -86,6 +87,7 @@
                         <td>${loop.index +1}</td>
                         <td>${a.student.stdid}</td>
                         <td>${a.student.stdname}</td>
+                        <td>${a.student.gender?"Female":"Male"}</td>
                         <td>
                             <input type="radio" 
                                    <c:if test="${!a.status}">
