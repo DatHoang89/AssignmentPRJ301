@@ -14,7 +14,19 @@
         .a {
             padding-left: 40px;
         }
-       
+        h2 {
+            font-size: 24px;
+            color: blue;
+        }
+
+        th {
+            background-color: gray;
+            color: white;
+        }
+
+        td.a {
+            text-align: center;
+        }
     </style>
     <body>
 
@@ -25,7 +37,7 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-
+                <td class="a"><a href="/PRJ301_Assignment/lecturer/att?id=1">Take Attendance</a></td>
             </tr>
         </table>
 

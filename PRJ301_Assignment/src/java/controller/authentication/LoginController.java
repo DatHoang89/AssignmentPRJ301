@@ -56,6 +56,7 @@ public class LoginController extends HttpServlet {
         {
             request.getSession().setAttribute("account", acc);
             request.getSession().setAttribute("username", username);
+            request.getSession().setAttribute("password", password);
             response.getWriter().println("login successful!");
         }
         if(acc.getRole() == 0){

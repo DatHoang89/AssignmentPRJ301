@@ -13,7 +13,19 @@
         .a {
             padding-left: 40px;
         }
-        
+        h2 {
+            font-size: 24px;
+            color: blue;
+        }
+
+        th {
+            background-color: gray;
+            color: white;
+        }
+
+        td.a {
+            text-align: center;
+        }
     </style>
     <body>
 
@@ -23,11 +35,11 @@
             <tr>
                 <th class="A">Academic Information</th>               
             </tr>
-           <tr>
-                <td class="a"><a href="/PRJ301_Assignment/student/timetable?sid=${requestScope.student.getStdid()}">Student TimeTable</a></td>
+            <tr>
+                <td class="a"><a href="/PRJ301_Assignment/student/timetable?sid=${requestScope.student.getStdid()}&from=2023-03-05&to=2023-03-13">Student TimeTable</a></td>
 
             </tr>
-            
+
         </table>
 
         <p>Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ sinh viên: Email: dichvusinhvien@fe.edu.vn. Điện thoại: (024)7308.13.13</p>

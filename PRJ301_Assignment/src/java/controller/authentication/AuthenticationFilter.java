@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import controller.authentication.LoginController;
 
 /**
  *
@@ -32,11 +33,11 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = req.getSession(false);
-
+        
         boolean isLoggedIn = (session != null && session.getAttribute("account") != null);
         String uri = req.getRequestURI();
-
-        if (!isLoggedIn && uri.startsWith(req.getContextPath() + "/lecturer/")) {
+        
+        if (!isLoggedIn && uri.startsWith(req.getContextPath() + "/lecturer/" )) {
 //            req.getRequestDispatcher("/view/authentication/login").forward(request, response);
             res.sendRedirect(req.getContextPath() + "/view/authentication/login.jsp");
         } else {

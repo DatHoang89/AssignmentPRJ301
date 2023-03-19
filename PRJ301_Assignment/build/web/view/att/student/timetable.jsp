@@ -80,7 +80,8 @@
                                         ${g.name}(${g.subject.name}) <br/>
                                         ${ses.lecturer.name}-${ses.room.name} <br/>
                                         <c:if test="${ses.status}">
-                                            <img src="../img/Ok-icon.png" alt=""/>
+                                            <u style="color: green">(attended)</u>
+                                            <!--<img src="../img/Ok-icon.png" alt=""/>-->
                                         </c:if>
                                     </c:if>
                                 </c:forEach>
