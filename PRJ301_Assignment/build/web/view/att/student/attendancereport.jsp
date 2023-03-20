@@ -12,9 +12,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Attendance Report</title>
+        <style>
+            body {
+                background-color: #f2f2f2;
+                font-family: Arial, sans-serif;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            tr:hover {
+                background-color: #ddd;
+            }
+        </style>
     </head>
     <body>
-
+        <h2>View Attendance</h2>
         <c:if test="${requestScope.attendance ne null}">
 
             <div class="timetable">
@@ -47,7 +77,7 @@
                                     <c:set var="t" value="${a.status}"/>
                                     <span ${t eq  "present" ? 'style="color: red"': t eq  "attended" ? 'style="color: green"': 'style="color: black"'}> ${a.status eq null ? 'Future': a.status eq "attended" ? 'present' : a.status}</span>
                                 </td>
-                                <td>${a.description}</td>
+                                <td></td>
                             </tr>
                         </c:forEach>
                     </tbody>

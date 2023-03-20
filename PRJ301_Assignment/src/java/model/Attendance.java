@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author LEGION
@@ -22,6 +24,16 @@ public class Attendance {
     private Session session;
     private boolean status;
     private String description;
+    private ArrayList<Group> group = new ArrayList<>();
+
+    public ArrayList<Group> getGroup() {
+        return group;
+    }
+
+    public void setGroup(ArrayList<Group> group) {
+        this.group = group;
+    }
+    
 
     public Student getStudent() {
         return student;
