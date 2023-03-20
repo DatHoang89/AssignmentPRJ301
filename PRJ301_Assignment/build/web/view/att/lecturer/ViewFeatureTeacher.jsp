@@ -37,11 +37,12 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="/PRJ301_Assignment/lecturer/att?id=1">Take Attendance</a></td>
+             <td class="a"><a href="/PRJ301_Assignment/lecturer/timetable?lid=2&from=2023-03-13&to=2023-03-19">Lecturer TimeTable</a></td>
             </tr>
         </table>
 
         <p>Mọi góp ý, thắc mắc xin liên hệ: Phòng dịch vụ sinh viên: Email: dichvusinhvien@fe.edu.vn. Điện thoại: (024)7308.13.13</p>
         </br>
+        <a href="logout">Logout</a>
     </body>
 </html>

@@ -47,7 +47,7 @@
             <p>FPT University Academic Portal</p>
         </h1>
         <h2>
-            <p>Activities for ${requestScope.l.name} </p>
+            <p>Activities for ${requestScope.lecturer.name} </p>
         </h2>
         <h4>
             <div>
@@ -74,12 +74,12 @@
                     <td>${slot.description}</td>
                     <c:forEach items="${requestScope.dates}" var="d">
                         <td>
-                            <c:forEach items="${requestScope.l.groups}" var="g">
+                            <c:forEach items="${requestScope.lecturer.groups}" var="g">
                                 <c:forEach items="${g.sessions}" var="ses">
                                     <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
-                                        ${g.name}(${g.subject.name}) <br/>
+                                        ${g.subject.name} at 
                                         ${ses.room.name} <br/>
-                                        
+                                        <a href="att?id=1">Take Attend</a>
                                     </c:if>
                                 </c:forEach>
                             </c:forEach>

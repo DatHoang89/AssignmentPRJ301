@@ -46,7 +46,7 @@ public class TimeTableInstructor extends BaseRequiredAuthenticatedController {
         
         TeacherDBContext stuDB = new TeacherDBContext();
         model.Lecturer lecturer = stuDB.getTimeTable(lid, from, to);
-        request.setAttribute("l", lecturer);
+        request.setAttribute("lecturer", lecturer);
         
         request.getRequestDispatcher("../view/att/lecturer/timetable.jsp").forward(request, response);
         

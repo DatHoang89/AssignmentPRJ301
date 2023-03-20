@@ -23,7 +23,8 @@ import model.TimeSlot;
  *
  * @author LEGION
  */
-public class TeacherDBContext extends DBContext{
+public class TeacherDBContext extends DBContext {
+
     public Lecturer getTeacherById(int teacherId) {
         try {
             String sql = "select * from Lecturer where lid = ?";
@@ -47,7 +48,7 @@ public class TeacherDBContext extends DBContext{
     }
 
     public Lecturer getTeacherByAid(int aId) {
-       try {
+        try {
             String sql = "select * from Lecturer where accountid = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, aId);
@@ -73,7 +74,7 @@ public class TeacherDBContext extends DBContext{
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT l.lid,l.lname,ses.sessionid,ses.date,ses.status\n"
+            String sql = "SELECT l.lid,l.lname,ses.sessionid,ses.date\n"
                     + "	,g.gid,g.gname,c.cid,c.cname,r.rid,r.rname,t.tid,t.description		\n"
                     + "FROM Student s INNER JOIN [Student_Group]  sg ON s.sid = sg.sid\n"
                     + "						INNER JOIN [Group] g ON g.gid = sg.gid\n"
@@ -88,11 +89,8 @@ public class TeacherDBContext extends DBContext{
             stm.setDate(2, from);
             stm.setDate(3, to);
             rs = stm.executeQuery();
-            Group currentGroup = new Group();
-            currentGroup.setId(-1);
             while (rs.next()) {
-                if(lecturer == null)
-                {
+                if (lecturer == null) {
                     lecturer = new Lecturer();
                     lecturer.setId(rs.getInt("lid"));
                     lecturer.setName(rs.getString("lname"));
@@ -110,30 +108,32 @@ public class TeacherDBContext extends DBContext{
 //                    student.getGroups().add(currentGroup);
 //                }
 
-                
-                
                 Session ses = new Session();
                 ses.setId(rs.getInt("sessionid"));
                 ses.setDate(rs.getDate("date"));
-                ses.setStatus(rs.getBoolean("status"));
-                ses.setGroup(currentGroup);
-                
+
                 Group group = new Group();
                 group.setId(rs.getInt("gid"));
                 group.setName("gname");
                 ses.setGroup(group);
-                
+
                 Room r = new Room();
                 r.setId(rs.getInt("rid"));
                 r.setName(rs.getString("rname"));
                 ses.setRoom(r);
-                
+
+                Course c = new Course();
+                c.setId(rs.getInt("cid"));
+                c.setName(rs.getString("cname"));
+                group.setSubject(c);
+
                 TimeSlot t = new TimeSlot();
                 t.setId(rs.getInt("tid"));
                 t.setDescription(rs.getString("description"));
                 ses.setSlot(t);
-                
-                currentGroup.getSessions().add(ses);
+
+                group.getSessions().add(ses);
+                lecturer.getGroups().add(group);
 
             }
         } catch (SQLException ex) {
@@ -148,8 +148,8 @@ public class TeacherDBContext extends DBContext{
             }
         }
         return lecturer;
-    } 
-    
+    }
+
     @Override
     public ArrayList all() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
