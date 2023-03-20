@@ -79,7 +79,7 @@
                                     <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
                                         ${g.subject.name} at 
                                         ${ses.room.name} <br/>
-                                        <a href="att?id=1">Take Attend</a>
+                                        <a href="att?id=${ses.id}">Take Attend</a>
                                     </c:if>
                                 </c:forEach>
                             </c:forEach>

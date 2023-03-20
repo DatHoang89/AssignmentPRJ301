@@ -15,19 +15,19 @@
     </head>
     <body>
         <div class="title"><h1>FPT University Academic Portal</h1></div>        
-<!--        <div class="formm">
+        <div class="formm">
             <form action="viewattendstudent" method="GET">
                 <input type="hidden" name="studenId" value="${sessionScope.account.studentId}">
                 <h3>Choose the course:</h3> 
                 <select style="height: 30px" name="course">
                     <c:forEach items="${requestScope.course}" var="c">
                         <c:set var="course" value="${requestScope.course}"/>
-                        <option value="${c.course.courseid}"  ${course == c.course.courseid ? 'selected':''}   >${c.gname}(${c.course.name})</option>
+                        <option value="${c.course.id}"  ${course == c.course.id ? 'selected':''}   >${c.gname}(${c.course.name})</option>
                     </c:forEach>
                 </select> 
                 <input class="button-66" type="submit" value="View" />
             </form>
-        </div>-->
+        </div>
 
         <c:if test="${requestScope.attendance ne null}">
 
@@ -57,11 +57,11 @@
                         <c:forEach items="${requestScope.attendance}" var="a" varStatus="loop">
                             <tr>
                                 <td>${loop.index+1}</td>
-<!--                                <td><fmt:formatDate value="${a.session.date}" pattern="EEEE dd/MMMM/yyyy" /></td>
-                                <td>${a.session.slot.tid}_(${a.session.slot.description})</td>
-                                <td>${a.session.room.rname}</td>
-                                <td>${a.session.lecturer.lname}</td>
-                                <td>${a.session.group.gname}</td>-->
+                                <td><fmt:formatDate value="${a.session.date}" pattern="EEEE dd/MMMM/yyyy" /></td>
+                                <td>${a.session.slot.id}_(${a.session.slot.description})</td>
+                                <td>${a.session.room.name}</td>
+                                <td>${a.session.lecturer.name}</td>
+                                <td>${a.session.group.name}</td>
 
                                 <td>
                                     <c:set var="t" value="${a.status}"/>

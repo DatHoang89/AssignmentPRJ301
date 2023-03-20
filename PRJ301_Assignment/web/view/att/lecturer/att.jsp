@@ -68,9 +68,7 @@
         <h2>
             <p>Single activity Attendance</p>
         </h2>
-        <h4>
-            <p>Attendance for ... with lecturer ... at slot 1</p>
-        </h4>
+        
         <form action="att" method="POST"> 
             <table border="1px">
                 <tr class="row">
@@ -111,6 +109,6 @@
             <input type="hidden" name="sessionid" value="${param.id}"/>
             <input type="submit" value="Save"/>
         </form>
-
+            
     </body>
 </html>

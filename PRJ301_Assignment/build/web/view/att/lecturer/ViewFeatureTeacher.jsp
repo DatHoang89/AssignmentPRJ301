@@ -37,7 +37,7 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-             <td class="a"><a href="/PRJ301_Assignment/lecturer/timetable?lid=2&from=2023-03-13&to=2023-03-19">Lecturer TimeTable</a></td>
+             <td class="a"><a href="/PRJ301_Assignment/lecturer/timetable?lid=${requestScope.lecture.getId()}&from=2023-03-13&to=2023-03-19">Lecturer TimeTable</a></td>
             </tr>
         </table>
 

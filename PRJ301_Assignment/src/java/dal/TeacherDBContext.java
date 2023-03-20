@@ -74,7 +74,7 @@ public class TeacherDBContext extends DBContext {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT l.lid,l.lname,ses.sessionid,ses.date\n"
+            String sql = "SELECT distinct l.lid,l.lname,ses.sessionid,ses.date\n"
                     + "	,g.gid,g.gname,c.cid,c.cname,r.rid,r.rname,t.tid,t.description		\n"
                     + "FROM Student s INNER JOIN [Student_Group]  sg ON s.sid = sg.sid\n"
                     + "						INNER JOIN [Group] g ON g.gid = sg.gid\n"
@@ -83,7 +83,7 @@ public class TeacherDBContext extends DBContext {
                     + "						INNER JOIN [TimeSlot] t ON t.tid = ses.tid\n"
                     + "						INNER JOIN [Room] r ON r.rid = ses.rid\n"
                     + "						INNER JOIN [Lecturer] l ON l.lid = ses.lid\n"
-                    + "WHERE l.lid = ? AND ses.date >= ? AND ses.date <= ? ORDER BY s.sid,g.gid";
+                    + "WHERE l.lid = ? AND ses.date >= ? AND ses.date <= ? ORDER BY g.gid";
             stm = connection.prepareStatement(sql);
             stm.setInt(1, lid);
             stm.setDate(2, from);
@@ -95,18 +95,6 @@ public class TeacherDBContext extends DBContext {
                     lecturer.setId(rs.getInt("lid"));
                     lecturer.setName(rs.getString("lname"));
                 }
-//                int gid = rs.getInt("gid");
-//                if(gid != currentGroup.getId())
-//                {
-//                    currentGroup = new Group();
-//                    currentGroup.setId(rs.getInt("gid"));
-//                    currentGroup.setName(rs.getString("gname"));
-//                    Course c = new Course();
-//                    c.setId(rs.getInt("cid"));
-//                    c.setName(rs.getString("cname"));
-//                    currentGroup.setSubject(c);
-//                    student.getGroups().add(currentGroup);
-//                }
 
                 Session ses = new Session();
                 ses.setId(rs.getInt("sessionid"));
