@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller.student;
+package controller.lecturer;
 
 import controller.authentication.BaseRequiredAuthenticatedController;
 import dal.StudentDBContext;
+import dal.TeacherDBContext;
 import dal.TimeSlotDBContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import util.DateTimeHelper;
  *
  * @author LEGION
  */
-public class TimeTableController extends BaseRequiredAuthenticatedController {
+public class TimeTableInstructor extends BaseRequiredAuthenticatedController {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,7 +33,7 @@ public class TimeTableController extends BaseRequiredAuthenticatedController {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
+        int lid = Integer.parseInt(request.getParameter("lid"));
         Date from = Date.valueOf(request.getParameter("from"));
         Date to = Date.valueOf(request.getParameter("to"));
         
@@ -44,11 +44,11 @@ public class TimeTableController extends BaseRequiredAuthenticatedController {
         ArrayList<Date> dates = DateTimeHelper.getListDate(from, to);
         request.setAttribute("dates", dates);
         
-        StudentDBContext stuDB = new StudentDBContext();
-        model.Student student = stuDB.getTimeTable(sid, from, to);
-        request.setAttribute("s", student);
+        TeacherDBContext stuDB = new TeacherDBContext();
+        model.Lecturer lecturer = stuDB.getTimeTable(lid, from, to);
+        request.setAttribute("l", lecturer);
         
-        request.getRequestDispatcher("../view/att/student/timetable.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/att/lecturer/timetable.jsp").forward(request, response);
         
         
     } 

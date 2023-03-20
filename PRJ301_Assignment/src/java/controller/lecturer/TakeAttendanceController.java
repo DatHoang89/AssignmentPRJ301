@@ -4,6 +4,7 @@
  */
 package controller.lecturer;
 
+import controller.authentication.BaseRequiredAuthenticatedLecturerController;
 import dal.AttendanceDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Account;
 import model.Attendance;
 import model.Session;
 import model.Student;
@@ -19,7 +21,7 @@ import model.Student;
  *
  * @author LEGION
  */
-public class TakeAttendanceController extends HttpServlet {
+public class TakeAttendanceController extends BaseRequiredAuthenticatedLecturerController {
    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -83,5 +85,15 @@ public class TakeAttendanceController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response, Account account) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response, Account account) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

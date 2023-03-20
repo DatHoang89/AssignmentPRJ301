@@ -15,11 +15,11 @@ import model.Account;
  *
  * @author LEGION
  */
-public abstract class BaseRequiredAuthenticatedController extends HttpServlet {
+public abstract class BaseRequiredAuthenticatedLecturerController extends HttpServlet {
 
     private boolean isAuthenticated(HttpServletRequest request) {
         Account a = (Account) request.getSession().getAttribute("account");
-        return a != null && a.getRole() == 0;
+        return a != null && a.getRole() == 1;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

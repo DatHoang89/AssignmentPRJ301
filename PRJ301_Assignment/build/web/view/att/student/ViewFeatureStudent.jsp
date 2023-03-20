@@ -36,7 +36,7 @@
                 <th class="A">Academic Information</th>               
             </tr>
             <tr>
-                <td class="a"><a href="/PRJ301_Assignment/student/timetable?sid=${requestScope.student.getStdid()}&from=2023-03-05&to=2023-03-13">Student TimeTable</a></td>
+                <td class="a"><a href="/PRJ301_Assignment/student/timetable?sid=${requestScope.student.getStdid()}&from=2023-03-13&to=2023-03-19">Student TimeTable</a></td>
 
             </tr>
 

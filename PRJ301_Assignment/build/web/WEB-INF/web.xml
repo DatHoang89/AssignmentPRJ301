@@ -28,6 +28,14 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.authentication.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAttendanceController</servlet-name>
+        <servlet-class>controller.student.AttendanceReportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LecturerTimeTable</servlet-name>
+        <servlet-class>controller.lecturer.TimeTableInstructor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -56,17 +64,18 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewAttendanceController</servlet-name>
+        <url-pattern>/viewattendancestudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LecturerTimeTable</servlet-name>
+        <url-pattern>/lecturer/timetable</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <filter>
-        <filter-name>AuthenticationFilter</filter-name>
-        <filter-class>controller.authentication.AuthenticationFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/lecturer/*</url-pattern>
-    </filter-mapping>
+    
 </web-app>

@@ -17,6 +17,15 @@ public class Lecturer {
     private String name;
     private boolean gender;
     private Date dob;
+    private ArrayList<Group> groups = new ArrayList<>();
+
+    public ArrayList<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(ArrayList<Group> groups) {
+        this.groups = groups;
+    }
 
     public Lecturer() {
     }

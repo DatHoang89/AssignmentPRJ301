@@ -14,6 +14,25 @@ public class Account {
     private String password;
     private String displayName;
     private int role;
+    private int studentId;
+    private int instructorId;
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getInstructorId() {
+        return instructorId;
+    }
+
+    public void setInstructorId(int instructorId) {
+        this.instructorId = instructorId;
+    }
+    
 
     public int getAid() {
         return aid;
