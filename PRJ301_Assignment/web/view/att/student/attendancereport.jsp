@@ -28,6 +28,9 @@
                 padding: 8px;
                 text-align: left;
             }
+            td{
+                background-color: lightblue;
+            }
 
             th {
                 background-color: #4CAF50;
@@ -58,7 +61,7 @@
                     <td>SLOT</td>
                     <td>ROOM</td>
                     <td>LECTURER</td>
-                    <td>GROUP NAME</td>
+                    <td>GROUP ID</td>
                     <td>ATTEDANCE STATUS</td>
                     <td>LECTURER'S COMMENT</td>
                     </thead>
@@ -71,11 +74,11 @@
                                 <td>${a.session.slot.id}_(${a.session.slot.description})</td>
                                 <td>${a.session.room.name}</td>
                                 <td>${a.session.lecturer.name}</td>
-                                <td>${a.session.group.name}</td>
+                                <td>${a.session.group.id}</td>
 
                                 <td>
                                     <c:set var="t" value="${a.status}"/>
-                                    <span ${t eq  "present" ? 'style="color: red"': t eq  "attended" ? 'style="color: green"': 'style="color: black"'}> ${a.status eq null ? 'Future': a.status eq "attended" ? 'present' : a.status}</span>
+                                    <span ${t eq  "false" ? 'style="color: red"': t eq  "true" ? 'style="color: darkblue"': 'style="color: black"'}> ${a.status eq null ? 'Future': a.status eq "attended" ? 'false' : a.status}</span>
                                 </td>
                                 <td></td>
                             </tr>
