@@ -77,7 +77,7 @@
                             <c:forEach items="${requestScope.lecturer.groups}" var="g">
                                 <c:forEach items="${g.sessions}" var="ses">
                                     <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
-                                        ${g.subject.name} at 
+                                        ${g.course.name} at 
                                         ${ses.room.name} <br/>
                                         <a href="att?id=${ses.id}">Take Attend</a>
                                     </c:if>

@@ -113,7 +113,7 @@ public class TeacherDBContext extends DBContext {
                 Course c = new Course();
                 c.setId(rs.getInt("cid"));
                 c.setName(rs.getString("cname"));
-                group.setSubject(c);
+                group.setCourse(c);
 
                 TimeSlot t = new TimeSlot();
                 t.setId(rs.getInt("tid"));

@@ -39,7 +39,7 @@ public class CourseDBContext extends DBContext<Course>{
                 c.setName(rs.getString("cname"));
                 g.setId(rs.getInt("gid"));
                 g.setName(rs.getString("gname"));
-                g.setSubject(c);
+                g.setCourse(c);
                 groupCourse.add(g);
             }
         } catch (SQLException ex) {

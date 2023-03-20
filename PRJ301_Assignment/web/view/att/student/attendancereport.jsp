@@ -47,6 +47,8 @@
         </style>
     </head>
     <body>
+       
+        
         <h2>View Attendance</h2>
         <c:if test="${requestScope.attendance ne null}">
 

@@ -14,7 +14,7 @@ public class Group {
 
     private int id;
     private String name;
-    private Course subject;
+    private Course course;
     private Lecturer lecturer;
 
     public Lecturer getLecturer() {
@@ -42,13 +42,15 @@ public class Group {
         this.name = name;
     }
 
-    public Course getSubject() {
-        return subject;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setSubject(Course subject) {
-        this.subject = subject;
+    public void setCourse(Course course) {
+        this.course = course;
     }
+
+    
 
     public ArrayList<Session> getSessions() {
         return sessions;

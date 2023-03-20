@@ -63,7 +63,7 @@ public class StudentDBContext extends DBContext<Student> {
                     Course c = new Course();
                     c.setId(rs.getInt("cid"));
                     c.setName(rs.getString("cname"));
-                    currentGroup.setSubject(c);
+                    currentGroup.setCourse(c);
                     student.getGroups().add(currentGroup);
                 }
                 Session ses = new Session();

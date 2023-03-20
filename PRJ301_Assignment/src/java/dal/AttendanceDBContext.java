@@ -174,7 +174,7 @@ public class AttendanceDBContext extends DBContext<Attendance> {
                 Course c = new Course();
                 c.setId(rs.getInt("cid"));
                 c.setName(rs.getString("cname"));
-                g.setSubject(c);
+                g.setCourse(c);
                 s.setGroup(g);
 
                 Room r = new Room();

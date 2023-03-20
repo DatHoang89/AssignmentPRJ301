@@ -77,7 +77,7 @@
                             <c:forEach items="${requestScope.s.groups}" var="g">
                                 <c:forEach items="${g.sessions}" var="ses">
                                     <c:if test="${ses.date eq d and ses.slot.id eq slot.id}">
-                                        ${g.name}(${g.subject.name}) <br/>
+                                        ${g.name}(${g.course.name}) <br/>
                                         ${ses.lecturer.name}-${ses.room.name} <br/>
                                         <c:if test="${ses.status}">
                                             <u style="color: green">(attended)</u>

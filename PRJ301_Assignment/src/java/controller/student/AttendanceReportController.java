@@ -26,7 +26,7 @@ public class AttendanceReportController extends BaseRequiredAuthenticatedControl
         CourseDBContext c = new CourseDBContext();
         Account account = (Account) request.getSession().getAttribute("account");
         ArrayList<Group> groupCourse = c.allCourseByStudentId(account.getStudentId());
-        request.setAttribute("course", groupCourse);
+        request.setAttribute("c", groupCourse);
 
         String raw_std = request.getParameter("sid");
         String raw_course = request.getParameter("cid");
@@ -37,7 +37,7 @@ public class AttendanceReportController extends BaseRequiredAuthenticatedControl
             request.setAttribute("attendance", attendance);
         } else {
             ReportAttendanceForStudentDBContext r = new ReportAttendanceForStudentDBContext();
-            ArrayList<Attendance> attendance = r.allAttendanceByStidCoid(account.getStudentId(), groupCourse.get(0).getSubject().getId());
+            ArrayList<Attendance> attendance = r.allAttendanceByStidCoid(account.getStudentId(), groupCourse.get(0).getCourse().getId());
             request.setAttribute("attendance", attendance);
         }
         request.getRequestDispatcher("view/att/student/attendancereport.jsp").forward(request, response);
