@@ -10,6 +10,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            h1.a {
+                color: red;
+                margin: 0 auto;
+                text-align: center;
+            }
+            table.table {
+                background-color: gray;
+                margin: 0 auto;
+                text-align: center;
+            }
+            th {
+                font-size: 18px;
+            }
+            a[href="/PRJ301_Assignment/viewattendancestudent?sid=1&cid=1"] {
+                background-color: blue;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                text-decoration: none;
+            }
+        </style>
     </head>
     <body>
         <h1 class="a">View Attendance Report</h1>
@@ -21,14 +43,14 @@
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                        <th scope="row">PRJ301</th>
-                        <th ><a href="/PRJ301_Assignment/viewattendancestudent?sid=1&cid=1">View attendance</a></th>
-                    </tr>
-                    <tr>
-                        <th scope="row">MAS291</th>
-                        <th ><a href="/PRJ301_Assignment/viewattendancestudent?sid=1&cid=1">View attendance</a></th>
-                    </tr>
+                <tr>
+                    <th scope="row">PRJ301</th>
+                    <th ><a href="/PRJ301_Assignment/viewattendancestudent?sid=1&cid=1">View attendance</a></th>
+                </tr>
+                <tr>
+                    <th scope="row">MAS291</th>
+                    <th ><a href="/PRJ301_Assignment/viewattendancestudent?sid=1&cid=1">View attendance</a></th>
+                </tr>
             </tbody>
         </table>
         </br>
