@@ -14,43 +14,23 @@
         <title>Attendance Report</title>
     </head>
     <body>
-        <div class="title"><h1>FPT University Academic Portal</h1></div>        
-        <div class="formm">
-            <form action="viewattendstudent" method="GET">
-                <input type="hidden" name="studenId" value="${sessionScope.account.studentId}">
-                <h3>Choose the course:</h3> 
-                <select style="height: 30px" name="course">
-                    <c:forEach items="${requestScope.course}" var="c">
-                        <c:set var="course" value="${requestScope.course}"/>
-                        <option value="${c.course.id}"  ${course == c.course.id ? 'selected':''}   >${c.gname}(${c.course.name})</option>
-                    </c:forEach>
-                </select> 
-                <input class="button-66" type="submit" value="View" />
-            </form>
-        </div>
 
         <c:if test="${requestScope.attendance ne null}">
 
             <div class="timetable">
                 <c:set var="p" value="0"/>
                 <c:forEach items="${requestScope.attendance}" var="a" varStatus="loop">
-                    <c:if test="${a.status eq 'absent'}">
-                        <c:set var="p" value="${p+1}"/>
-                    </c:if>
                 </c:forEach>
-                <c:set var="size" value="${requestScope.attendance.size()}"/>
-                <fmt:formatNumber var="aa" value="${p/size*100}" pattern="##"/>
-                <p class="percentage">ABSENT: ${aa}% ABSENT SO FAR ( ${p} ABSENT ON ${size} TOTAL).</p>
-                <table>
+                <table border="1px">
                     <thead>
-                    <th>NO</th>
-                    <th>DATE</th>   
-                    <th>SLOT</th>
-                    <th>ROOM</th>
-                    <th>LECTURER</th>
-                    <th>GROUP NAME</th>
-                    <th>ATTEDANCE STATUS</th>
-                    <th>LECTURER'S COMMENT</th>
+                    <td>NO</td>
+                    <td>DATE</td>   
+                    <td>SLOT</td>
+                    <td>ROOM</td>
+                    <td>LECTURER</td>
+                    <td>GROUP NAME</td>
+                    <td>ATTEDANCE STATUS</td>
+                    <td>LECTURER'S COMMENT</td>
                     </thead>
                     <tbody>
                         <c:set var="t" value="0"/>
@@ -65,7 +45,7 @@
 
                                 <td>
                                     <c:set var="t" value="${a.status}"/>
-                                    <span ${t eq  "absent" ? 'style="color: red"': t eq  "attended" ? 'style="color: green"': 'style="color: black"'}> ${a.status eq null ? 'Future': a.status eq "attended" ? 'present' : a.status}</span>
+                                    <span ${t eq  "present" ? 'style="color: red"': t eq  "attended" ? 'style="color: green"': 'style="color: black"'}> ${a.status eq null ? 'Future': a.status eq "attended" ? 'present' : a.status}</span>
                                 </td>
                                 <td>${a.description}</td>
                             </tr>
